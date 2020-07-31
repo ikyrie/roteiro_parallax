@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/cabecalho.css">
     <link rel="stylesheet" href="assets/css/produto.css">
+    <link rel="stylesheet" href="assets/css/outros-produtos.css">
+    <link rel="stylesheet" href="assets/css/carousel.css">
 </head>
 <body>
     <header class="cabecalho container">
@@ -39,6 +41,38 @@
                 </div>
             </article>
         </section>
+        <section class="outros-produtos">
+            <h2 class="outros-produtos__titulo">NOSSOS OUTROS PRODUTOS</h2>
+            <article class="carousel">
+                <button class="carousel__botao carousel__botao--anterior" aria-label="Botão de voltar"></button>
+                <button class="carousel__botao carousel__botao--proximo" aria-label="Botão de avançar"></button>
+                <ul class="carousel__lista-produtos">
+                    <a href="#" class="carousel__produto">
+                        <li class="carousel__imagem-container"><img src="assets/img/produto1.png" alt="" class="carousel__imagem"></li>
+                    </a>
+                    <a href="#" class="carousel__produto">
+                        <li class="carousel__imagem-container"><img src="assets/img/produto2.png" alt="" class="carousel__imagem"></li>
+                    </a>
+                    <a href="#" class="carousel__produto">
+                        <li class="carousel__imagem-container"><img src="assets/img/produto3.png" alt="" class="carousel__imagem"></li>
+                    </a>
+                    <a href="#" class="carousel__produto">
+                        <li class="carousel__imagem-container"><img src="assets/img/produto4.png" alt="" class="carousel__imagem"></li>
+                    </a>
+                    <a href="#" class="carousel__produto">
+                        <li class="carousel__imagem-container"><img src="assets/img/produto5.png" alt="" class="carousel__imagem"></li>
+                    </a>
+                </ul>
+                <div class="carousel__indicadores">
+                    <button class="carousel__indicador carousel__indicador--ativo"></button>
+                    <button class="carousel__indicador"></button>
+                    <button class="carousel__indicador"></button>
+                    <button class="carousel__indicador"></button>
+                    <button class="carousel__indicador"></button>
+                </div>
+            </article>
+        </section>
     </main>
+    <script src="assets/js/index.js" type="module"></script>
 </body>
 </html>
