@@ -14,6 +14,7 @@ export class Carousel {
 
         this.proximo.addEventListener('click', this.proximoSlide.bind(this))
         this.anterior.addEventListener('click', this.voltaSlide.bind(this))
+        this.navegacao.addEventListener('click', this.pularParaSlide.bind(this))
 
         this.preparaSlides()
     }
@@ -34,10 +35,14 @@ export class Carousel {
         return this.slides[this.indiceDoSlideAtual]
     }
 
+    getIndicadorAtual() {
+        return this.indicadores[this.indiceDoSlideAtual]
+    }
+
     proximoSlide() {
         let proximaPosicao = this.indiceDoSlideAtual + 1
         if(proximaPosicao > this.slides.length - 1) {
-            proximaPosicao = proximaPosicao % this.slides.length
+            proximaPosicao = 0
         }
         this.vaParaSlide(proximaPosicao)
     }
@@ -51,14 +56,29 @@ export class Carousel {
     }
 
     vaParaSlide(posicao) {
+        const indicadorAtual = this.getIndicadorAtual()
         this.indiceDoSlideAtual = posicao
         const proximoSlide = this.getSlideAtual()
+        const indicadorSelecionado = this.getIndicadorAtual()
 
         this.scrollParaSlide(proximoSlide)
+        this.atualizaIndicadores(indicadorAtual, indicadorSelecionado)
     }
 
     scrollParaSlide(slideSelecionado) {
         this.listaProdutos.style.transform = 'translateX(-' + slideSelecionado.style.left + ')'
+    }
+
+    atualizaIndicadores(indicadorAtual, indicadorSelecionado) {
+        indicadorAtual.classList.remove('carousel__indicador--ativo')
+        indicadorSelecionado.classList.add('carousel__indicador--ativo')
+    }
+
+    pularParaSlide(evento) {
+        if(evento.target === evento.currentTarget) return
+
+        const indicadorSelecionado = evento.target.getAttribute('data-indicador')
+        this.vaParaSlide(parseInt(indicadorSelecionado))
     }
 
     preparaSlides() {
