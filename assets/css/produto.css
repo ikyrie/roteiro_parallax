@@ -17,7 +17,7 @@
 
     z-index: -1;
 
-    transform: translate(-75%, 25%) translateZ(-1px) scale(2.75);
+    transform: translate(-75%, 0) translateZ(-1px) scale(2.1);
 }
 
 .produto__descricao {
